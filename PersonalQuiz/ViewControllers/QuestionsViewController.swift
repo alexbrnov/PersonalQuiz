@@ -31,7 +31,7 @@ final class QuestionsViewController: UIViewController {
         questions[questionIndex].answers
     }
 
-    // MARK: - View Life Cycle
+    // MARK: - Overrides Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -39,6 +39,12 @@ final class QuestionsViewController: UIViewController {
         rangedSlider.maximumValue = answerCount
         rangedSlider.value = answerCount / 2
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let resultVC = segue.destination as? ResultViewController else { return }
+        resultVC.answers = answersChosen
+    }
+    
 
     // MARK: - IB Actions
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
@@ -95,7 +101,6 @@ private extension QuestionsViewController {
         // Show stacks corresponding to question type
         showCurrentAnswers(for: currentQuestion.type)
     }
-    
     
     /// Choice of answers category
     ///
