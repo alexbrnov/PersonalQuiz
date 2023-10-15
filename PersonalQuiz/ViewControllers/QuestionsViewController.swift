@@ -30,7 +30,7 @@ final class QuestionsViewController: UIViewController {
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
-
+    
     // MARK: - Overrides Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,6 @@ final class QuestionsViewController: UIViewController {
         resultVC.answers = answersChosen
     }
     
-
     // MARK: - IB Actions
     @IBAction func singleAnswerButtonPressed(_ sender: UIButton) {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
@@ -60,7 +59,6 @@ final class QuestionsViewController: UIViewController {
                 answersChosen.append(answer)
             }
         }
-        
         nextQuestion()
     }
     

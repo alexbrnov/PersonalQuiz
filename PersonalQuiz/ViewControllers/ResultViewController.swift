@@ -50,7 +50,7 @@ private extension ResultViewController {
             } else {
                 animalCounts[answer.animal] = 1
             }
-        
+            
             if let count = animalCounts[answer.animal], count > maxCount {
                 maxCount = count
             }
